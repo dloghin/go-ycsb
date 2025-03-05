@@ -22,9 +22,9 @@ ifeq ($(SQLITE_CHECK), 0)
 endif
 
 ifeq ($(ROCKSDB_CHECK), 0)
-	TAGS += rocksdb
-	CGO_CXXFLAGS := "${CGO_CXXFLAGS} -std=c++11"
-	CGO_FLAGS += CGO_CXXFLAGS=$(CGO_CXXFLAGS)
+	TAGS := rocksdb
+#	CGO_FLAGS :=
+	CGO_LDFLAGS := CGO_LDFLAGS="-lrocksdb -lstdc++ -lzstd -llz4"
 endif
 
 endif
@@ -36,9 +36,11 @@ build:
 ifeq ($(TAGS),)
 	$(CGO_FLAGS) go build -o bin/go-ycsb cmd/go-ycsb/*
 else
-	$(CGO_FLAGS) go build -tags "$(TAGS)" -o bin/go-ycsb cmd/go-ycsb/*
+	$(CGO_FLAGS) $(CGO_LDFLAGS) go build -tags $(TAGS) -o bin/go-ycsb cmd/go-ycsb/*
 endif
 
 check:
 	golint -set_exit_status db/... cmd/... pkg/...
 
+clean:
+	rm -rf bin/*

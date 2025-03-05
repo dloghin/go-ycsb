@@ -230,6 +230,17 @@ Common configurations:
 |rocksdb.index_type|kBinarySearch|Sets the index type used for this table. __kBinarySearch__: A space efficient index block that is optimized for binary-search-based index. __kHashSearch__: The hash index, if enabled, will do the hash lookup when `Options.prefix_extractor` is provided. __kTwoLevelIndexSearch__: A two-level index implementation. Both levels are binary search indexes|
 |rocksdb.block_align|false|Enable/Disable align data blocks on lesser of page size and block size|
 
+#### Install RocksDB Ubuntu
+
+We use [grocksdb](https://github.com/linxGnu/grocksdb) RocksDB Go wrapper (version [v1.9.8](https://github.com/linxGnu/grocksdb/releases/tag/v1.9.8)). It is recommended to install RocksDB as following:
+```
+sudo apt -y install libsnappy-dev zlib1g-dev libbz2-dev liblz4-dev libzstd-dev
+rocksdb_version="9.8.4"
+wget https://github.com/facebook/rocksdb/archive/v${rocksdb_version}.tar.gz && tar xzf v${rocksdb_version}.tar.gz && cd rocksdb-${rocksdb_version}/
+mkdir -p build && cd build && cmake -DCMAKE_BUILD_TYPE=Release $CMAKE_REQUIRED_PARAMS -DCMAKE_PREFIX_PATH=$INSTALL_PREFIX -DWITH_TESTS=OFF -DWITH_GFLAGS=OFF -DWITH_BENCHMARK_TOOLS=OFF -DWITH_TOOLS=OFF -DWITH_MD_LIBRARY=OFF -DWITH_RUNTIME_DEBUG=OFF -DROCKSDB_BUILD_SHARED=OFF -DWITH_SNAPPY=ON -DWITH_LZ4=ON -DWITH_ZLIB=ON -DWITH_LIBURING=OFF -DWITH_ZSTD=ON -DWITH_BZ2=OFF -WITH_GFLAGS=OFF -DPORTABLE=0 .. && make -j16
+sudo make install
+```
+
 ### Spanner
 
 |field|default value|description|

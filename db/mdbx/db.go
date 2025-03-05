@@ -34,8 +34,9 @@ func (c mdbxCreator) Create(p *properties.Properties) (ycsb.DB, error) {
 		panic(err)
 	}
 	path := filepath.Dir(ex)
+	path = filepath.Join(path, p.GetString("mdbx.path", "mdbx"))
 	logger := logv3.New()
-	table := "testtable"
+	table := p.GetString("mdbx.table", "testtable")
 	m := mdbx.NewMDBX(logger).InMem(path).WithTableCfg(func(defaultBuckets kv.TableCfg) kv.TableCfg {
 		return kv.TableCfg{
 			table:       kv.TableCfgItem{Flags: kv.DupSort},

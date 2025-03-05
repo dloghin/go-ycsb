@@ -100,6 +100,7 @@ Available Commands:
 - BoltDB
 - etcd
 - DynamoDB
+- mdbx [see [mdbx-go](https://github.com/erigontech/mdbx-go)]
 
 ## Output configuration
 
@@ -347,7 +348,16 @@ sudo make install
 |dynamodb.consistent.reads|false|Reads on DynamoDB provide an eventually consistent read by default. If your benchmark/use-case requires a strongly consistent read, set this option to true|
 |dynamodb.delete.after.run.stage|false|Detele the database table after the run stage|
 
+### mdbx
 
+We benchmark mdbx as used by [cdk-erigon](https://github.com/0xPolygonHermez/cdk-erigon). For this, clone ``cdk-erigon``:
+```
+git clone https://github.com/0xPolygonHermez/cdk-erigon.git
+go mod tidy
+make
+./bin/go-ycsb load mdbx -P workloads/workloada
+./bin/go-ycsb run mdbx -P workloads/workloada
+```
 
 ## TODO
 

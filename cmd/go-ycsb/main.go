@@ -54,6 +54,8 @@ import (
 	_ "github.com/pingcap/go-ycsb/db/foundationdb"
 	// Register RocksDB database
 	_ "github.com/pingcap/go-ycsb/db/rocksdb"
+	// Register MDBX database
+	_ "github.com/pingcap/go-ycsb/db/mdbx"
 	// Register Spanner database
 	_ "github.com/pingcap/go-ycsb/db/spanner"
 	// Register pegasus database

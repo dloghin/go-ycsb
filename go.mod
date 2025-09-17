@@ -13,9 +13,6 @@ require (
 	github.com/elastic/go-elasticsearch/v8 v8.3.0
 	github.com/envoyproxy/go-control-plane v0.11.1 // indirect
 	github.com/envoyproxy/protoc-gen-validate v1.0.2 // indirect
-	github.com/facebookgo/ensure v0.0.0-20160127193407-b4ab57deab51 // indirect
-	github.com/facebookgo/stack v0.0.0-20160209184415-751773369052 // indirect
-	github.com/facebookgo/subset v0.0.0-20150612182917-8dac2c3c4870 // indirect
 	github.com/fortytw2/leaktest v1.3.0 // indirect
 	github.com/go-ini/ini v1.49.0 // indirect
 	github.com/go-redis/redis/v9 v9.0.0-rc.1
@@ -30,7 +27,6 @@ require (
 	github.com/pingcap/kvproto v0.0.0-20220705053936-aa9c2d20cd2a
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/spf13/cobra v1.0.0
-	github.com/tecbot/gorocksdb v0.0.0-20191217155057-f0fad39f321c
 	github.com/tikv/client-go/v2 v2.0.1-0.20220720064224-aa9ded37d17d
 	github.com/ugorji/go/codec v1.2.8
 	go.mongodb.org/mongo-driver v1.11.3
@@ -46,6 +42,8 @@ require (
 	github.com/aws/aws-sdk-go-v2/feature/dynamodb/expression v1.4.26
 	github.com/aws/aws-sdk-go-v2/service/dynamodb v1.17.1
 	github.com/aws/aws-sdk-go-v2/service/s3 v1.27.0
+	github.com/linxGnu/grocksdb v1.10.2
+	github.com/syndtr/goleveldb v1.0.0
 	go.etcd.io/etcd/client/pkg/v3 v3.5.2
 	go.etcd.io/etcd/client/v3 v3.5.2
 	go.sia.tech/gofakes3 v0.0.1

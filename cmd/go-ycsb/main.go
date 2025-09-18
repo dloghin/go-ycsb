@@ -70,6 +70,8 @@ import (
 	_ "github.com/pingcap/go-ycsb/db/boltdb"
 	// Register leveldb database
 	_ "github.com/pingcap/go-ycsb/db/leveldb"
+	// Register pebble database
+	_ "github.com/pingcap/go-ycsb/db/pebble"
 	// Register minio
 	_ "github.com/pingcap/go-ycsb/db/minio"
 	// Register elastic
